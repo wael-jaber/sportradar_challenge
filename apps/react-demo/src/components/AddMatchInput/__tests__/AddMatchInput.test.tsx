@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { AddMatchInput } from '../AddMatchInput.tsx';
-import { Match } from '../../Match';
+import { Match } from 'scoreboard';
 
 describe('ScoreboardContainer', () => {
   afterEach(cleanup);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Scoreboard, Match } from 'scoreboard';
-import { EditMatchModal, Match as MatchComponent } from '../../components/';
+import { AddMatchInput, EditMatchModal, Match as MatchComponent } from '../../components/';
 
 /**
  * ScoreboardContainer component that uses the scoreboard library to manage matches and scores
@@ -73,7 +73,9 @@ export function ScoreboardContainer(): React.ReactElement {
 
   return (
     <div data-testid="scoreboard-container">
-      <div data-testid="add-match-container"></div>
+      <div data-testid="add-match-container">
+        <AddMatchInput onAddMatch={handleAddMatch} />
+      </div>
 
       <div data-testid="matches-container">
         {matches.map((match, index) => (
