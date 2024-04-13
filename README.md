@@ -17,6 +17,25 @@ To install the project, follow the steps below:
 3. Run `yarn install` to install the dependencies of the project (make sure you have yarn installed and corepack enabled)
 
 ## Running the project
+
+### Docker
+if you have docker compose installed on your machine, you can run the following command to run the project:
+
+```bash
+docker-compose up
+```
+
+this command will build the project and run the frontend application on port localhost:8080
+
+if you don't have docker compose installed on your machine, you can run the following commands:
+
+```bash
+docker build -t sportradar_challenge .
+docker run -p 8080:80 sportradar_challenge
+```
+
+### Native
+
 Run the following command to :
 
 - build the library ( required to run the frontend application ):
