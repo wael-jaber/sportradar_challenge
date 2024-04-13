@@ -23,9 +23,9 @@ Run the following command to :
 ```bash
 yarn scoreboard:build
 ```
-- run the frontend application:
+- run the frontend application in development mode:
 ```bash
-yarn frontend:start
+yarn frontend:dev
 ```
 - run the tests for both the library and the frontend application:
 ```bash
@@ -64,8 +64,6 @@ scoreboard.endMatch(match1);
 
 scoreboard.getMatches();
 // [ match2 ]
-
-
 ```
 
 
