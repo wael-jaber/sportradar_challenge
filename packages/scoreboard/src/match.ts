@@ -1,8 +1,9 @@
-import { MatchInitialConfigT, MatchInterface, MatchUpdateScoreT } from './interfaces/match.interface.ts';
+import { MatchInterface } from './interfaces/match.interface.ts';
+import { MatchInitialConfigT, MatchUpdateScoreT } from './types/match.types.ts';
 
 /**
  * @class Match
- * @implements MatchInterface
+ * @implements MatchType
  * @description Represents a match between two teams with a score for each team and provides methods to update the score, get the total score and get a string representation of the match.
  */
 export class Match implements MatchInterface {

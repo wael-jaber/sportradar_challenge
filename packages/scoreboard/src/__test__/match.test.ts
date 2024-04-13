@@ -23,7 +23,9 @@ describe('Match unit tests', () => {
     const { Match } = await import('../match');
     expect(() => new Match({ homeTeam: 'Home', awayTeam: 'Away', homeScore: 1.5, awayScore: 1 })).toThrow();
     expect(() => new Match({ homeTeam: 'Home', awayTeam: 'Away', homeScore: 1, awayScore: 1.5 })).toThrow();
+    // @ts-expect-error TS2322: we are testing invalid input
     expect(() => new Match({ homeTeam: 'Home', awayTeam: 'Away', homeScore: '1', awayScore: 1 })).toThrow();
+    // @ts-expect-error TS2322: we are testing invalid input
     expect(() => new Match({ homeTeam: 'Home', awayTeam: 'Away', homeScore: 1, awayScore: '1' })).toThrow();
   });
 

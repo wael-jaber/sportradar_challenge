@@ -1,14 +1,4 @@
-export type MatchInitialConfigT = {
-  homeTeam: string;
-  awayTeam: string;
-  homeScore?: number;
-  awayScore?: number;
-};
-
-export type MatchUpdateScoreT = {
-  homeScore: number;
-  awayScore: number;
-};
+import { MatchUpdateScoreT } from '../types/match.types.ts';
 
 export interface MatchInterface {
   updateScore(updatedScores: MatchUpdateScoreT): void;
