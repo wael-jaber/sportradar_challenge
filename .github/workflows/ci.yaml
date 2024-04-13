@@ -31,6 +31,9 @@ jobs:
       - name: Lint
         run: yarn lint-all
 
+      - name: Build scoreboard package
+        run: yarn scoreboard:build
+
       - name: Test
         run: yarn test-all
 
