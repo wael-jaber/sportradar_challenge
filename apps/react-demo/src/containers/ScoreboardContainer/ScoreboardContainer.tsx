@@ -72,7 +72,10 @@ export function ScoreboardContainer(): React.ReactElement {
   };
 
   return (
-    <div data-testid="scoreboard-container" className={'w-10/12 my-14 border-2 rounded-lg border-b-gray-500 p-5'}>
+    <div
+      data-testid="scoreboard-container"
+      className={'w-10/12 my-14 border-2 rounded-lg border-b-gray-500 p-5 flex flex-col space-y-3'}
+    >
       <div data-testid="add-match-container">
         <AddMatchInput onAddMatch={handleAddMatch} />
       </div>

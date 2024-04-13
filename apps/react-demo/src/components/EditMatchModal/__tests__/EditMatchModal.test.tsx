@@ -35,7 +35,7 @@ describe('ScoreboardContainer', () => {
       />,
     );
 
-    expect(screen.getByText('Home 0 - 0 Away')).toBeDefined();
+    expect(screen.getByText('(HOME) Home 0 - 0 Away (AWAY)')).toBeDefined();
   });
 
   test('should render home score input', () => {

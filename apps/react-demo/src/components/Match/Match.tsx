@@ -25,14 +25,28 @@ export const Match: React.FC<MatchProps> = ({ score, onEditClick, onEndClick }: 
   };
 
   return (
-    <div>
-      <div id={'score'}>{score}</div>
+    <div className={'flex w-full border-2 rounded-lg p-5 align-middle'}>
+      <div
+        id={'score'}
+        className={'w-full text-center font-extrabold'}
+        style={{ wordSpacing: '20px', height: 'max-content' }}
+      >
+        {score}
+      </div>
 
-      <div id={'controls'}>
-        <button data-testid={'edit-button'} onClick={handleEditClick}>
+      <div id={'controls'} className={'flex space-x-5 ml-auto'}>
+        <button
+          className={'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full'}
+          data-testid={'edit-button'}
+          onClick={handleEditClick}
+        >
           Edit
         </button>
-        <button data-testid={'end-button'} onClick={handleEndClick}>
+        <button
+          className={'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'}
+          data-testid={'end-button'}
+          onClick={handleEndClick}
+        >
           End
         </button>
       </div>
