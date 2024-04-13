@@ -3,8 +3,8 @@
 
 ## Description
 This project is a solution to the Sportradar Challenge. The project is a monorepo consists of a simple package 
-**"Scoreboard"**, which is used to keep track of the scores of different teams in a sports match.And
-a simple frontend application that uses the library to display the scores of the teams in a sports match.
+[**"Scoreboard"**](./packages/scoreboard/README.md), which is used to keep track of the scores of different teams in a sports match.And
+a simple [**frontend application**](./apps/react-demo/README.md) that uses the library to display the scores of the teams in a sports match.
 
 ## Installation
 To install the project on your local machine, you need to have the following installed:
@@ -19,7 +19,7 @@ To install the project, follow the steps below:
 ## Running the project
 Run the following command to :
 
-- build the library:
+- build the library ( required to run the frontend application ):
 ```bash
 yarn scoreboard:build
 ```
@@ -65,6 +65,9 @@ scoreboard.endMatch(match1);
 scoreboard.getMatches();
 // [ match2 ]
 ```
+
+## Notes
+- The library isn't designed to work with React however we can make it work if we ignore a bit of the best React practices; will result in a bit of performance hit.
 
 
 
