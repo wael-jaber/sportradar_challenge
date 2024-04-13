@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Scoreboard, Match } from 'scoreboard';
 import { Match as MatchComponent } from '../../components/';
 
+/**
+ * ScoreboardContainer component that uses the scoreboard library to manage matches and scores
+ * @returns {React.ReactElement} The ScoreboardContainer component
+ */
 export function ScoreboardContainer(): React.ReactElement {
   // NOTE: This is a simple example of how to use the scoreboard library in a React component,
   // but if this was a real-world application, you don't want to use a class instance as a state
@@ -18,11 +22,19 @@ export function ScoreboardContainer(): React.ReactElement {
     setMatches(scoreboard.getMatches());
   }, [scoreboard]); // Ensure useEffect runs only once after scoreboard instantiation
 
+  /**
+   * End a match and update the React state with the updated matches
+   * @param match  The match to end
+   */
   const endMatch = (match: Match) => {
     scoreboard.endMatch(match);
     setMatches(scoreboard.getMatches()); // Update React state with the updated matches
   };
 
+  /**
+   * Add a match and update the React state with the updated matches
+   * @param match The match to add
+   */
   const handleAddMatch = (match: Match) => {
     scoreboard.addMatch(match);
     setMatches(scoreboard.getMatches());
@@ -31,16 +43,29 @@ export function ScoreboardContainer(): React.ReactElement {
     // (React will not know that the matches have changed)
   };
 
+  /**
+   * Update a match and update the React state with the updated matches
+   * @param match The match to update
+   * @param homeScore The new home score
+   * @param awayScore The new away score
+   */
   const handleUpdateMatch = (match: Match, homeScore: number, awayScore: number) => {
     scoreboard.updateScore(match, homeScore, awayScore);
     setMatches(scoreboard.getMatches());
   };
 
+  /**
+   * Open the modal to edit a match
+   * @param match The match to edit
+   */
   const handleOpenModal = (match: Match) => {
     setSelectedMatch(match);
     setIsModalOpen(true);
   };
 
+  /**
+   * Close the modal to edit a match
+   */
   const handleCloseModal = () => {
     setSelectedMatch(null);
     setIsModalOpen(false);
