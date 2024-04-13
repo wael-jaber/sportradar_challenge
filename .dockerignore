@@ -1,0 +1,16 @@
+# yarn cache
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+
+# scoreboard package stuff
+./packages/scoreboard/node_modules/
+./packages/scoreboard/dist/
+
+# demo app stuff
+./apps/react-demo/node_modules/
