@@ -39,7 +39,9 @@ describe('Match unit tests', () => {
     const match = new Match({ homeTeam: 'Home', awayTeam: 'Away' });
     expect(() => match.updateScore({ homeScore: -1, awayScore: 1 })).toThrow();
     expect(() => match.updateScore({ homeScore: 1, awayScore: -1 })).toThrow();
+    // @ts-expect-error TS2322: we are testing invalid input
     expect(() => match.updateScore({ homeScore: '1', awayScore: 1 })).toThrow();
+    // @ts-expect-error TS2322: we are testing invalid input
     expect(() => match.updateScore({ homeScore: 1, awayScore: '1' })).toThrow();
   });
 
