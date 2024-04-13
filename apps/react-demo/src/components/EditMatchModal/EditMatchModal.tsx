@@ -11,7 +11,19 @@ type EditMatchModalProps = {
   onUpdateMatchClick: () => void;
 };
 
-export function EditMatchModal({
+/**
+ * Edit match modal component
+ * @param props
+ * @param props.isOpen - Whether the modal is open
+ * @param props.currentScore - The current score of the match
+ * @param props.newHomeScore - The new home score
+ * @param props.newAwayScore - The new away score
+ * @param props.setNewHomeScore - Function to set the new home score
+ * @param props.setNewAwayScore - Function to set the new away score
+ * @param props.onClose - Function to close the modal
+ * @param props.onUpdateMatchClick - Function to update the match
+ */
+export const EditMatchModal: React.FC<EditMatchModalProps> = ({
   isOpen,
   currentScore,
   newHomeScore,
@@ -20,7 +32,7 @@ export function EditMatchModal({
   setNewAwayScore,
   onClose,
   onUpdateMatchClick,
-}: EditMatchModalProps): React.ReactElement {
+}: EditMatchModalProps) => {
   // check if both scores are not empty and valid numbers (including zero)
   const isUpdateDisabled = !newHomeScore || !newAwayScore || isNaN(Number(newHomeScore)) || isNaN(Number(newAwayScore));
   if (!isOpen) {
@@ -87,4 +99,4 @@ export function EditMatchModal({
       </div>
     </div>
   );
-}
+};
