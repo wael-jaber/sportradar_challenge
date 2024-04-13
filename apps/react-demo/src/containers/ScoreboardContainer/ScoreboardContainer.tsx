@@ -14,8 +14,8 @@ export function ScoreboardContainer(): React.ReactElement {
   const [matches, setMatches] = useState<Match[]>([]);
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [newHomeScore, setNewHomeScore] = useState<number>(0);
-  const [newAwayScore, setNewAwayScore] = useState<number>(0);
+  const [newHomeScore, setNewHomeScore] = useState<string>('');
+  const [newAwayScore, setNewAwayScore] = useState<string>('');
 
   useEffect(() => {
     // Update React state with the summary
