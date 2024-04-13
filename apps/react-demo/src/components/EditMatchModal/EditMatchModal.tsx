@@ -92,7 +92,7 @@ export const EditMatchModal: React.FC<EditMatchModalProps> = ({
               disabled={isUpdateDisabled}
               onClick={() => onUpdateMatchClick()}
             >
-              Update scores{' '}
+              Update scores
             </button>
           </div>
         </div>
