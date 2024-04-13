@@ -139,3 +139,44 @@ describe('Scoreboard unit tests', () => {
     expect(() => scoreboard.updateScore(match, 2, 1)).toThrow();
   });
 });
+
+describe('Scoreboard integration tests', () => {
+  test('should return matches in correct order', async () => {
+    const { Scoreboard } = await import('../scoreboard');
+    const { Match } = await import('../match');
+    const scoreboard = new Scoreboard();
+
+    // a. Mexico 0 - Canada 5
+    // b. Spain 10 - Brazil 2
+    // c. Germany 2 - France 2
+    // d. Uruguay 6 - Italy 6
+    // e. Argentina 3 - Australia 1
+
+    const match1 = new Match({ homeTeam: 'Mexico', homeScore: 0, awayTeam: 'Canada', awayScore: 5 });
+    const match2 = new Match({ homeTeam: 'Spain', homeScore: 10, awayTeam: 'Brazil', awayScore: 2 });
+    const match3 = new Match({ homeTeam: 'Germany', homeScore: 2, awayTeam: 'France', awayScore: 2 });
+    const match4 = new Match({ homeTeam: 'Uruguay', homeScore: 6, awayTeam: 'Italy', awayScore: 6 });
+    const match5 = new Match({ homeTeam: 'Argentina', homeScore: 3, awayTeam: 'Australia', awayScore: 1 });
+
+    scoreboard.addMatch(match1);
+    scoreboard.addMatch(match2);
+    scoreboard.addMatch(match3);
+    scoreboard.addMatch(match4);
+    scoreboard.addMatch(match5);
+
+    // a. Mexico 0 - Canada 5 => 5
+    // b. Spain 10 - Brazil 2 => 12
+    // c. Germany 2 - France 2 => 4
+    // d. Uruguay 6 - Italy 6 => 12
+    // e. Argentina 3 - Australia 1 => 4
+
+    // expected order:
+    // 1. Uruguay 6 - Italy 6
+    // 2. Spain 10 - Brazil 2
+    // 3. Mexico 0 - Canada 5
+    // 4. Argentina 3 - Australia 1
+    // 5. Germany 2 - France 2
+
+    expect(scoreboard.getMatches()).toStrictEqual([match4, match2, match1, match5, match3]);
+  });
+});
