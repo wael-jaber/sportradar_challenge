@@ -1,7 +1,9 @@
+import { ScoreboardContainer } from './containers';
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Scoreboard Demo</h1>
+      <ScoreboardContainer />
     </>
   );
 }
