@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Scoreboard, Match } from 'scoreboard';
-import { Match as MatchComponent } from '../../components/';
+import { EditMatchModal, Match as MatchComponent } from '../../components/';
 
 /**
  * ScoreboardContainer component that uses the scoreboard library to manage matches and scores
@@ -85,7 +85,23 @@ export function ScoreboardContainer(): React.ReactElement {
           />
         ))}
       </div>
-      <div data-testid="edit-match-modal"></div>
+      <div data-testid="edit-match-modal">
+        <EditMatchModal
+          isOpen={isModalOpen}
+          currentScore={selectedMatch ? selectedMatch.toString() : ''}
+          newHomeScore={newHomeScore}
+          newAwayScore={newAwayScore}
+          setNewHomeScore={setNewHomeScore}
+          setNewAwayScore={setNewAwayScore}
+          onClose={handleCloseModal}
+          onUpdateMatchClick={() => {
+            if (selectedMatch) {
+              handleUpdateMatch(selectedMatch, parseInt(newHomeScore), parseInt(newAwayScore));
+              handleCloseModal();
+            }
+          }}
+        />
+      </div>
     </div>
   );
 }
