@@ -2,8 +2,8 @@
 ![example branch parameter](https://github.com/wael-jaber/sportradar_challenge/actions/workflows/ci.yaml/badge.svg?branch=main)
 
 ## Description
-This project is a solution to the Sportradar Challenge. The project is a monorepo consists of a simple library 
-**"Scoreboard"** which is used to keep track of the scores of different teams in a sports match.And
+This project is a solution to the Sportradar Challenge. The project is a monorepo consists of a simple package 
+**"Scoreboard"**, which is used to keep track of the scores of different teams in a sports match.And
 a simple frontend application that uses the library to display the scores of the teams in a sports match.
 
 ## Installation
@@ -33,7 +33,40 @@ yarn test-all
 ```
 
 ## Usage
-TBD
+The library is a simple class that can be used to keep track of the scores of different teams in a sports match.
+
+```typescript
+import { Scoreboard ,Match } from 'scoreboard';
+
+const match1 = new Match({
+    homeTeam: 'Mexico',
+    homeScore: 0,   // initial home score (optional)
+    awayTeam: 'Canada',
+    awayScore: 5    // initial away score (optional) 
+});
+const match2 = new Match({ homeTeam: 'Spain', awayTeam: 'Brazil' }); // initial scores are 0
+const scoreboard = new Scoreboard();
+
+scoreboard.addMatch(match1);
+scoreboard.addMatch(match2);
+
+scoreboard.getMatches(); // returns an array of matches
+// [ match1, match2 ]
+
+scoreboard.updateScore(match2
+    ,5 // home score
+    ,6 // away score
+)
+scoreboard.getMatches(); 
+// [ match2, match1 ]
+
+scoreboard.endMatch(match1);
+
+scoreboard.getMatches();
+// [ match2 ]
+
+
+```
 
 
 
